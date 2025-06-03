@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-user-graduate"></i> Student Management System</h1>
+            <p>Student record manager </p>
+        </header>
+        
+        <div class="main-content">
+            <section class="form-section">
+                <h2 class="form-title"><i class="fas fa-plus"></i> Student Form</h2>
+                
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="rollNo">Roll Number</label>
+                        <input type="text" id="rollNo" placeholder="Enter roll number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="Enter age" min="10" max="25" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade">Grade</label>
+                        <select id="grade" required>
+                            <option value="">Select grade</option>
+                            <option value="A">A (Excellent)</option>
+                            <option value="B">B (Good)</option>
+                            <option value="C">C (Average)</option>
+                            <option value="D">D (Below Average)</option>
+                            <option value="F">F (Fail)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="add-btn">
+                            <i class="fas fa-user-plus"></i> Add Student
+                        </button>
+                        <button type="button" class="update-btn" id="updateBtn" style="display:none">
+                            <i class="fas fa-edit"></i> Update
+                        </button>
+                        <button type="button" class="reset-btn" id="resetBtn">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="data-section">
+                <h2 class="form-title"><i class="fas fa-list"></i> Student Records</h2>
+                
+                <div class="controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search by roll number...">
+                    </div>
+                    
+                    <div class="filter-sort">
+                        <select id="filterGrade">
+                            <option value="">Filter by Grade</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="F">F</option>
+                        </select>
+                        
+                        <select id="sortBy">
+                            <option value="">Sort By</option>
+                            <option value="rollNo">Roll Number</option>
+                            <option value="name">Name</option>
+                            <option value="age">Age</option>
+                            <option value="grade">Grade</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="studentTable">
+                        <thead>
+                            <tr>
+                                <th data-sort="rollNo">Roll No</th>
+                                <th data-sort="name">Name</th>
+                                <th data-sort="age">Age</th>
+                                <th data-sort="grade">Grade</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody">
+                            <!-- Student records will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="student-count">
+                    Total Students: <span id="studentCount">0</span>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+
+</body>
+</html>
